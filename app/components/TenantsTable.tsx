@@ -43,7 +43,7 @@ function getInitials(name: string) {
 export default function TenantsTable({ tenants }: TenantsTableProps) {
   return (
     <div className="animate-fade-in stagger-5 rounded-2xl border border-[var(--card-border)] bg-white transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-200/50">
-      <div className="flex items-center justify-between border-b border-[var(--card-border)] px-6 py-5">
+      <div className="flex items-center justify-between border-b border-[var(--card-border)] px-4 sm:px-6 py-5">
         <div>
           <h3 className="font-semibold text-slate-800">Recent Tenants</h3>
           <p className="mt-0.5 text-xs text-[var(--muted)]">
@@ -58,22 +58,22 @@ export default function TenantsTable({ tenants }: TenantsTableProps) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-[var(--card-border)] text-left">
-              <th className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <th className="px-4 sm:px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Tenant
               </th>
-              <th className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <th className="px-4 sm:px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Room
               </th>
-              <th className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <th className="px-4 sm:px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Status
               </th>
-              <th className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <th className="hidden md:table-cell px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Contact
               </th>
-              <th className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <th className="hidden lg:table-cell px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Move-in Date
               </th>
-              <th className="px-6 py-3.5" />
+              <th className="px-4 sm:px-6 py-3.5" />
             </tr>
           </thead>
           <tbody>
@@ -84,7 +84,7 @@ export default function TenantsTable({ tenants }: TenantsTableProps) {
                   key={`${tenant.room}-${i}`}
                   className="group border-b border-[var(--card-border)] last:border-0 transition-colors hover:bg-slate-50/80"
                 >
-                  <td className="px-6 py-3.5">
+                  <td className="px-4 sm:px-6 py-3.5">
                     <div className="flex items-center gap-3">
                       <div
                         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${avatarColors[i]} text-xs font-bold text-white shadow-sm`}
@@ -96,12 +96,12 @@ export default function TenantsTable({ tenants }: TenantsTableProps) {
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-3.5">
+                  <td className="px-4 sm:px-6 py-3.5">
                     <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
                       Room {tenant.room}
                     </span>
                   </td>
-                  <td className="px-6 py-3.5">
+                  <td className="px-4 sm:px-6 py-3.5">
                     <span
                       className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${status.bg} ${status.text}`}
                     >
@@ -111,17 +111,17 @@ export default function TenantsTable({ tenants }: TenantsTableProps) {
                       {tenant.status}
                     </span>
                   </td>
-                  <td className="px-6 py-3.5 font-mono text-xs text-slate-500">
+                  <td className="hidden md:table-cell px-6 py-3.5 font-mono text-xs text-slate-500">
                     {tenant.contact}
                   </td>
-                  <td className="px-6 py-3.5 text-slate-500">
+                  <td className="hidden lg:table-cell px-6 py-3.5 text-slate-500">
                     {new Date(tenant.moveIn).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
                     })}
                   </td>
-                  <td className="px-6 py-3.5">
+                  <td className="px-4 sm:px-6 py-3.5">
                     <button className="rounded-lg p-1.5 text-slate-300 opacity-0 transition-all group-hover:opacity-100 hover:bg-slate-100 hover:text-slate-500">
                       <MoreHorizontal className="h-4 w-4" />
                     </button>

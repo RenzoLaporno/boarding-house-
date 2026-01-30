@@ -116,16 +116,16 @@ export default async function Home() {
         <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
         <div className="absolute -bottom-8 right-20 h-24 w-24 rounded-full bg-white/10 blur-xl" />
 
-        <div className="relative flex items-center justify-between">
+        <div className="relative">
           <div>
-            <h2 className="text-xl font-bold">
+            <h2 className="text-lg sm:text-xl font-bold">
               Welcome to Transcent Dashboard
             </h2>
             <p className="mt-1 text-sm text-blue-100">
               Manage your boarding house tenants, rooms, and payments all in one
               place.
             </p>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-4 flex flex-wrap gap-3">
               <AddTenantModal availableRooms={availableRoomNumbers} />
               <button className="flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20">
                 View Reports

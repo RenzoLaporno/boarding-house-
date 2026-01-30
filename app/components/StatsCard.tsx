@@ -32,7 +32,7 @@ export default function StatsCard({
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm font-medium text-[var(--muted)]">{label}</p>
-          <p className="mt-2 text-3xl font-extrabold tracking-tight text-slate-800">
+          <p className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-800">
             {value}
           </p>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, Search, CalendarDays } from "lucide-react";
+import { Bell, Search, CalendarDays, Menu } from "lucide-react";
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -18,16 +18,26 @@ function getFormattedDate() {
   });
 }
 
-export default function Topbar() {
+interface TopbarProps {
+  onMenuClick: () => void;
+}
+
+export default function Topbar({ onMenuClick }: TopbarProps) {
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-[var(--card-border)] bg-white/80 px-6 backdrop-blur-md">
-      {/* Left: greeting */}
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-[var(--card-border)] bg-white/80 px-4 sm:px-6 backdrop-blur-md">
+      {/* Left: hamburger + greeting */}
       <div className="flex items-center gap-3">
+        <button
+          onClick={onMenuClick}
+          className="rounded-xl p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 lg:hidden"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
         <div>
           <h1 className="text-[15px] font-semibold text-slate-800">
             {getGreeting()}, Admin
           </h1>
-          <div className="flex items-center gap-1.5 text-xs text-slate-400">
+          <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-400">
             <CalendarDays className="h-3 w-3" />
             {getFormattedDate()}
           </div>
