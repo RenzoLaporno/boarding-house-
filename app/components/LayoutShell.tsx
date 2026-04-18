@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
+import BottomNav from "./BottomNav";
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -15,8 +16,9 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
       <Sidebar open={sidebarOpen} onClose={closeSidebar} />
       <div className="flex flex-1 flex-col lg:ml-64">
         <Topbar onMenuClick={openSidebar} />
-        <main className="flex-1 p-4 sm:p-6">{children}</main>
+        <main className="flex-1 p-4 pb-20 sm:p-6 sm:pb-6 lg:pb-6">{children}</main>
       </div>
+      <BottomNav />
     </div>
   );
 }
